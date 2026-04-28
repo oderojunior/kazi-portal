@@ -1,0 +1,22 @@
+{
+  "name": "Kazi Portal",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/postgres:1": { "version": "16" },
+    "ghcr.io/devcontainers/features/redis:1":    { "version": "7"  }
+  },
+  "postCreateCommand": "cd backend && npm install",
+  "forwardPorts": [3000, 5432, 6379],
+  "portsAttributes": {
+    "3000": { "label": "Kazi API", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint", "esbenp.prettier-vscode",
+        "mtxr.sqltools", "mtxr.sqltools-driver-pg",
+        "humao.rest-client", "eamodio.gitlens"
+      ]
+    }
+  }
+}
